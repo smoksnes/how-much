@@ -9,6 +9,9 @@ import { ContentComponent } from './components/content/content.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FlowWrapperComponent } from './components/flow/flow-wrapper/flow-wrapper.component';
 import { FlowItemComponent } from './components/flow/flow-item/flow-item.component';
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './reducers/counter.reducer';
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -23,7 +26,8 @@ import { FlowItemComponent } from './components/flow/flow-item/flow-item.compone
         MaterialModule,
         AppRoutingModule,
         BrowserAnimationsModule,
-        HttpClientModule
+        HttpClientModule,
+        StoreModule.forRoot({ count: counterReducer })
     ]
 })
 export class AppModule { }
