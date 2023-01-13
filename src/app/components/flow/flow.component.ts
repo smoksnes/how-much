@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import IFlow from 'src/app/interfaces/flow';
 import FlowService from 'src/app/services/flow-service';
 
 @Component({
@@ -11,19 +12,18 @@ import FlowService from 'src/app/services/flow-service';
 export class FlowComponent implements OnInit, OnDestroy  {
   sub: any;  
   id: number = 0;
+  flow: IFlow|null = null;
 
   constructor(
     private readonly _flowService: FlowService,
     private route: ActivatedRoute
   ) { 
-    
-    const foo = _flowService.getFlows();
   }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
        this.id = +params['id']; // (+) converts string 'id' to a number
-       // In a real app: dispatch action to load the details here.
+       this._flowService.getFlow(this.id).then(flow => this.flow = flow);
     });
   }
 

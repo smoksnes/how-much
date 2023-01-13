@@ -13,13 +13,18 @@ export default class FlowService
 
 constructor(private http: HttpClient){}
 
+    public getFlow = async (index: number) : Promise<IFlow> => {
+        if(this.flows.length == 0)
+            await this.getFlows();
+        
+        return this.flows.filter(x => x.id == index)[0];
+    }
+
     public getFlows = async () : Promise<Array<IFlow>> => {
-        debugger;
-        // const json : string = JSON.stringify(jsonData);
-        // console.log(json)
+        if(this.flows.length > 0)
+            return this.flows;
         const configCall = this.http.get<Array<IFlow>>('./assets/flows2.json');
         this.flows = await lastValueFrom(configCall)
-        // const flows: Array<IFlow> = jsonData as Array<IFlow>;//;JSON.parse(json);
         return this.flows;
     }
 }

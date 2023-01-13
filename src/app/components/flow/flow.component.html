@@ -3,8 +3,8 @@
     <mat-card-title>EPC  <mat-chip disabled></mat-chip></mat-card-title>
   </mat-card-header>
   <mat-divider></mat-divider>
-  <mat-card-content>
-    {{id}}
+  <mat-card-content *ngIf="flow != null">
+    {{id}} - {{flow?.name}}
   </mat-card-content>
   <mat-card-footer align="end">
     <button mat-stroked-button>

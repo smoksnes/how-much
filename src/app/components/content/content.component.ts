@@ -17,11 +17,10 @@ export class ContentComponent implements OnInit {
     private readonly _flowService: FlowService,
   ) { 
     debugger;
-    _flowService.getFlows().then(x => this.flows = x);
     console.log(this.flows);
   }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this._flowService.getFlows().then(x => this.flows = x);
   }
 
 }
