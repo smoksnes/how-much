@@ -5,11 +5,11 @@ import IFlow from 'src/app/interfaces/flow';
 import FlowService from 'src/app/services/flow-service';
 
 @Component({
-  selector: 'flow-component',
-  templateUrl: './flow.component.html',
-  styleUrls: ['./flow.component.scss']
+  selector: 'flow-wrapper-component',
+  templateUrl: './flow-wrapper.component.html',
+  styleUrls: ['./flow-wrapper.component.scss']
 })
-export class FlowComponent implements OnInit, OnDestroy  {
+export class FlowWrapperComponent implements OnInit, OnDestroy  {
   sub: any;  
   id: number = 0;
   flow: IFlow|null = null;
