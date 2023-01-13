@@ -9,6 +9,18 @@
   </mat-card-header>
   <mat-divider></mat-divider>
   <mat-card-content>
+    <ul class="heroes">
+      <li *ngFor="let flow of flows">
+        <a [routerLink]="['/flows/' + flow.id]">
+          {{flow.name}}
+        </a>
+        <button type="button">
+          <span class="badge"></span>
+        </button>
+      </li>
+    </ul>
+
+
     <mat-grid-list cols="3">
       <mat-grid-tile>
       </mat-grid-tile>

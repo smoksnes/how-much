@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContentComponent } from './components/content/content.component';
+import { FlowComponent } from './components/flow/flow.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'app',
+    redirectTo: 'flows',
     pathMatch: 'full'
   },
   {
-    path: 'app',
+    path: 'flows',
     component: ContentComponent,
   },
+  { path: 'flows/:id', component: FlowComponent },
 ];
 
 @NgModule({
